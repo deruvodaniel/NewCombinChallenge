@@ -1,32 +1,77 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">
+        Users
+      </router-link> |
+      <router-link to="/table">
+        Table
+      </router-link>
     </nav>
-    <router-view/>
+    <router-view />
+    <AppFooter />
   </div>
 </template>
 
+<script>
+import axios from 'axios';
+import AppFooter from './components/AppFooter.vue';
+
+export default {
+  components: {
+    AppFooter,
+  },
+  created() {
+    const post = {
+      username: 'sarah',
+      password: 'connor',
+    };
+
+    axios.post('http://localhost:8081/auth', post).then((result) => {
+      window.localStorage.setItem('token', result.data.token);
+    });
+  },
+};
+</script>
+
 <style lang="scss">
+
+// Global styles
+@import "@/scss/main.scss";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  background-image: url(./assets/background.svg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Poppins';
+  box-sizing: border-box;
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: $padding30;
+    color: $mainColor;
+    font-weight: 600;
+    box-sizing: border-box;
+    a {
+      color: $mainColor;
+      font-size: $textM;
+      margin: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      &:hover {
+        color: $secondaryColor;
+      }
     }
   }
 }
+
 </style>
