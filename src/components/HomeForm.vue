@@ -194,11 +194,12 @@ export default {
 .form-container {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: fit-content;
+  margin-bottom: 2rem;
   align-items: center;
   flex-direction: column;
   h2 {
-    margin: 30px;
+    margin: 10px;
     font-size: $textL;
   }
   form{

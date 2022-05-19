@@ -27,10 +27,12 @@ export default {
   bottom: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
   width: 100%;
   min-width: 100;
   background-color: $mainColor;
-  padding: $padding30;
+  padding: 10px;
   box-sizing: border-box;
 }
 </style>
