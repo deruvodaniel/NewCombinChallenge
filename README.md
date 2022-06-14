@@ -1,3 +1,7 @@
+#Backend
+```
+npm run serve
+```
 # client
 
 ## Project setup
