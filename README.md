@@ -2,10 +2,12 @@
 ```
 npm run serve
 ```
-# client
+# Client
 
 ## Project setup
 ```
+cd client
+
 npm install
 ```
 
